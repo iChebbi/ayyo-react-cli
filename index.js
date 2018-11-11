@@ -38,7 +38,7 @@ function createReactApp() {
     if (appName) {
       console.log("\nCreating react app...".cyan)
       try {
-        shell.exec(`node ${require('path').dirname(require.main.filename)}/node_modules/create-react-app/index.js ${appName} --scripts-version @ichebbi/react-scripts`, (e, stdout, stderr) => {
+        shell.exec(`node ${require('path').dirname(require.main.filename)}/node_modules/create-react-app/index.js ${appName} --scripts-version @ayyo/react-scripts`, (e, stdout, stderr) => {
           if (stderr) {
             if (e == 127) {
               console.log(`create-react-app not installed \n install create-react-app first globally use :`.red)
