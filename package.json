@@ -1,27 +1,26 @@
 {
-  "name": "cli-react",
-  "version": "2.0.8",
-  "description": "A npm package to generate a react boilerplate with : sass, mobx, routing, protected routes. Also with the possibilty to generate react components from the command line with options to generate stylesheet, functional components and observer components",
+  "name": "@ayyo/react-cli",
+  "version": "1.0.0",
+  "description": "An opinionated react boilerplate with cli component generator",
   "main": "index.js",
   "bin": {
-    "rct": "index.js"
+    "react-cli": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nickverstocken/cli-react"
+    "url": "https://github.com/iChebbi/ayyo-react-cli"
   },
-  "author": "Nick Verstocken",
+  "author": "Chebbi Aymen, Yosr Naija",
   "license": "MIT",
   "dependencies": {
-    "colors": "^1.1.2",
     "commander": "^2.13.0",
     "create-react-app": "^1.5.0",
     "fs-extra": "^5.0.0",
     "json": "^9.0.6",
-    "replace": "^0.3.0",
+    "replace": "^1.0.0",
     "shelljs": "^0.7.8"
   }
 }
