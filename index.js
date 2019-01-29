@@ -24,7 +24,7 @@ async function createReact(dir) {
   appName = dir
   appDirectory = `${process.cwd()}/${appName}`
   if (fs.existsSync(appDirectory)) {
-    console.log('Directory already exists choose antother name...'.red)
+    console.log('Directory already exists choose another name...'.red)
     process.exit(1)
   }
   let success = await createReactApp()
@@ -89,7 +89,7 @@ async function createComponent(component, cmd, arg) {
   }
 
   if (fs.existsSync('./src/components')) {
-    newCompPath = cmd.subcomponent ? `./src/components/${cmd.subcomponent}/subcomponents/${component}` : `./src/components/${component}`
+    newCompPath = cmd.subcomponent ? `./src/components/${cmd.subcomponent}/${component}` : `./src/components/${decapitalize(component)}`
   }
   // let template = await buildTemplate()
   const presentationalTemplate = buildPresentationalTemplate()
@@ -127,18 +127,25 @@ function buildContainerTemplate() {
 function capitalize(comp) {
   return comp[0].toUpperCase() + comp.substring(1, comp.length)
 }
+
+function decapitalize(comp) {
+  return comp[0].toLowerCase() + comp.substring(1, comp.length)
+}
+
 async function writeFile(presentationalTemplate, containerTemplate, component) {
   let path = newCompPath
 
+  console.log(path)
+
   let comp = component.split('/')
-  comp = comp[comp.length - 1]
+  comp =  comp[comp.length - 1]
   let presentationalPath
   let containerPath
   if (path) {
     presentationalPath = path + '/' + capitalize(comp)
     containerPath = path + '/index'
   } else {
-    presentationalPath = capitalize(comp)
+    presentationalPath = (comp)
   }
 
   //create stylesheet
@@ -168,6 +175,13 @@ async function writeFile(presentationalTemplate, containerTemplate, component) {
         replace({
           regex: ':className',
           replacement: capitalize(comp),
+          paths: [`${path}.${extension}`],
+          recursive: false,
+          silent: true,
+        })
+        replace({
+          regex: ':cssClassName',
+          replacement: decapitalize(comp),
           paths: [`${path}.${extension}`],
           recursive: false,
           silent: true,

@@ -6,7 +6,7 @@ export default class :className extends Component {
 
   render() {
     return (
-      <div className="C">
+      <div className=":cssClassName">
       Hello from :className
       </div>
     )
@@ -16,7 +16,7 @@ export default class :className extends Component {
 
 const functional = `
 const :className = () => (
-  <div className=":className">
+  <div className=":cssClassName">
     Hello from :className
   </div>
 )
@@ -35,7 +35,7 @@ const reduxContainer = `
 const mapStateToProps = ({ :reducerName }) => ({ :reducerName })
 const mapDispatchToProps = { sampleOperation }
 
-const componentWithReducer = withReducer(reducer, ':reducerName')(:className)
+const componentWithReducer = withReducer(reducer, ':reducerName', { namespaceActions: false })(:className)
 export default connect(mapStateToProps, mapDispatchToProps)(componentWithReducer)
 `
 
@@ -50,25 +50,6 @@ const imports = {
   presentationalComponent: "import :className from './:className'",
   sampleOperation: "import { sampleOperation } from './duck/operations'"
 }
-
-// const exported = {
-//   default: "export default :className;",
-//   observable: "export default (observer(:className));",
-//   connectDispatch: "export default connect(null, mapDispatchToProps)(:className);",
-//   connectStateAndDispatch: "export default connect(mapStateToProps, mapDispatchToProps)(:className);"
-// }
-
-// const mapStateToProps = `
-// function mapStateToProps(state, ownProps) {
-//   return {};
-// };
-// `
-
-// const mapDispatchToProps = `
-// function mapDispatchToProps(dispatch) {
-//   return {};
-// }
-// `
 
 module.exports = {
   main: main,
