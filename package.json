@@ -16,7 +16,7 @@
   "author": "Chebbi Aymen, Yosr Naija",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.13.0",
+    "commander": "^3.0.2",
     "create-react-app": "^1.5.0",
     "fs-extra": "^5.0.0",
     "json": "^9.0.6",
