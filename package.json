@@ -18,7 +18,7 @@
   "dependencies": {
     "commander": "^2.13.0",
     "create-react-app": "^1.5.0",
-    "fs-extra": "^5.0.0",
+    "fs-extra": "^8.1.0",
     "json": "^9.0.6",
     "replace": "^1.0.0",
     "shelljs": "^0.7.8"
